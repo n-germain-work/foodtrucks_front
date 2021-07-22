@@ -27,6 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid rgb(139, 139, 139);
 }
 
 .HomeMap .popupBtns {
@@ -36,6 +37,7 @@
 
 .HomeMap .phoneBtn {
   background-color: rgb(104, 207, 0);
+  display: none;
 }
 
 .HomeMap .btnMaps {
@@ -61,6 +63,6 @@
   }
 
   .HomeMap .phoneBtn {
-    display: none;
+    display: block;
   }
 }

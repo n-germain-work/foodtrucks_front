@@ -1,15 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@200;300;400&family=Comfortaa&family=Dancing+Script&family=Economica&family=Kalam:wght@300;400&family=Merienda&display=swap');
+
 .HomeSearch {
   width: 700px;
 }
 
+.HomeSearch h4 {
+  font-family: 'Kalam', cursive;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
 .HomeSearch .truckLabel {
   width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  font-size: 0.8rem;
+}
+
+.HomeSearch .truckLabel .labelType {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  font-size: 0.7rem;
+}
+
+.HomeSearch .truckLabel .labelType .labelMarker {
+  height: 42px;
+  width: 26px;
+}
+
+.HomeSearch .truckLabel .labelData {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(235, 235, 235);
+  width: 70%;
+  border-radius: 0.3rem;
+}
+
+.HomeSearch .truckLabel .labelDataTop,
+.HomeSearch .truckLabel .labelDataBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50%;
+  margin: 0 1rem;
+}
+
+.HomeSearch .truckLabel .labelButtons {
+  display: flex;
+}
+
+.HomeSearch .phoneBtn a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.HomeSearch button {
+  width: 50px;
   height: 50px;
-  background-color: darkgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgb(139, 139, 139);
+  margin: 0.2rem;
+}
+
+.HomeSearch .labelButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.HomeSearch .phoneBtn {
+  background-color: rgb(104, 207, 0);
+  display: none;
+}
+
+.HomeSearch .btnMaps {
+  background-color: rgb(58, 110, 252);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 1000px) {
   .HomeSearch {
-    width: 75%;
+    width: 95%;
+  }
+
+  .HomeSearch .phoneBtn {
+    display: block;
+  }
+
+  .HomeSearch h4 {
+    font-size: 1rem;
+  }
+
+  .HomeSearch .truckLabel {
+    font-size: 0.6rem;
+  }
+
+  .HomeSearch button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .HomeSearch .phoneBtn a {
+    font-size: 1rem;
+  }
+
+  .HomeSearch .btnMaps {
+    font-size: 1.5rem;
+  }
+
+  .HomeSearch .hideOnPhone {
+    display: none;
+  }
+
+  .HomeSearch .truckLabel {
+    height: 60px;
+  }
+
+  .HomeSearch .truckLabel .labelDataTop,
+  .HomeSearch .truckLabel .labelDataBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    margin: 0 0.5rem;
+  }
+
+  .HomeSearch .truckLabel .labelType {
+    font-size: 0.6rem;
   }
 }

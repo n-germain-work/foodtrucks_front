@@ -26,3 +26,16 @@
   color: #ba8200;
   margin: 1vh;
 }
+
+@media only screen and (max-width: 1000px) {
+  .Footer .links {
+    width: 100vw;
+  }
+
+  .Footer p,
+  .Footer a {
+    font-size: 0.7rem;
+    margin: 0.3vh;
+    margin-bottom: 1.5vh;
+  }
+}

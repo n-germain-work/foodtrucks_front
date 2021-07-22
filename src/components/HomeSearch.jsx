@@ -26,15 +26,66 @@ const HomeSearch = ({ trucks, center, where }) => {
           )
           .map((truck) => (
             <div className="truckLabel">
-              <h3>{truck.name}</h3>
-              <p>Spécialité : {truck.type}</p>
-              <p>
-                Horaires :{' '}
-                {truck.start.length === 2 ? `${truck.start}:00` : truck.start} -{' '}
-                {truck.end.length === 2 ? `${truck.end}:00` : truck.end}
-              </p>
-              <p>Téléphone : {truck.phone}</p>
-              <div className="popupBtns">
+              <div className="labelType">
+                <img
+                  src={(() => {
+                    switch (truck.type) {
+                      case 'burger':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png';
+                      case 'farine':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-black.png';
+                      case 'pasta':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png';
+                      case 'pizza':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png';
+                      case 'tacos':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png';
+                      case 'vegan':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
+                      case 'viande':
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png';
+                      default:
+                        return 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png';
+                    }
+                  })()}
+                  alt="marker"
+                  className="labelMarker"
+                />
+                {truck.type}
+              </div>
+              <div className="labelData">
+                <div className="labelDataTop">
+                  <h4>{truck.name}</h4>
+                  <div>
+                    <span className="hideOnPhone">Horaires : </span>
+                    <span>
+                      {truck.start.length === 2
+                        ? `${truck.start}:00`
+                        : truck.start}{' '}
+                      - {truck.end.length === 2 ? `${truck.end}:00` : truck.end}
+                    </span>
+                  </div>
+                </div>
+                <div className="labelDataBottom">
+                  <div>
+                    <span className="hideOnPhone">Téléphone : </span>
+                    <span>{truck.phone}</span>
+                  </div>
+                  <p>
+                    {(
+                      distance(
+                        truck.longitude,
+                        truck.latitude,
+                        center.lat,
+                        center.lng
+                      ) / 1000
+                    ).toFixed(1)}
+                    {' km'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="labelButtons">
                 <button type="button" className="phoneBtn">
                   <a href={`tel:${truck.phone}`}>&#9742;</a>
                 </button>
@@ -48,14 +99,6 @@ const HomeSearch = ({ trucks, center, where }) => {
                   &#8663;
                 </button>
               </div>
-              <p>
-                {distance(
-                  truck.longitude,
-                  truck.latitude,
-                  center.lat,
-                  center.lng
-                ) / 1000}
-              </p>
             </div>
           ))}
     </div>
