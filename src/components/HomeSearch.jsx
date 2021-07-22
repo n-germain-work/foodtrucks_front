@@ -1,8 +1,39 @@
 import './HomeSearch.css';
 import PropTypes from 'prop-types';
+import { useEffect, useState } from 'react';
 import distance from '../scripts/distanceCalculator';
 
 const HomeSearch = ({ trucks, center, where }) => {
+  const [trucksWithDistance, setTrucksWithDistance] = useState('');
+
+  function sortByDistance(array) {
+    return array.sort((a, b) => {
+      const x = +a.distance;
+      const y = +b.distance;
+      if (x < y) {
+        return -1;
+      }
+      if (x > y) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+
+  useEffect(() => {
+    if (trucks.length) {
+      const temp = trucks.map((truck) => ({
+        ...truck,
+        distance: (
+          distance(truck.longitude, truck.latitude, center.lat, center.lng) /
+          1000
+        ).toFixed(1),
+      }));
+      sortByDistance(temp);
+      setTrucksWithDistance(temp);
+    }
+  }, [trucks, center, where]);
+
   const showInMapClicked = (lon, lat) => {
     window.open(
       `https://www.google.com/maps/dir/?api=1&origin=${center.lat},${center.lng}&destination=${lon},${lat}`
@@ -10,19 +41,10 @@ const HomeSearch = ({ trucks, center, where }) => {
   };
   return (
     <div className="HomeSearch">
-      {trucks.length &&
-        trucks
+      {trucksWithDistance.length &&
+        trucksWithDistance
           .filter(
-            (truck) =>
-              where.value === 'cp' ||
-              distance(
-                truck.longitude,
-                truck.latitude,
-                center.lat,
-                center.lng
-              ) /
-                1000 <=
-                where.value
+            (truck) => where.value === 'cp' || truck.distance <= where.value
           )
           .map((truck) => (
             <div className="truckLabel">
@@ -72,14 +94,7 @@ const HomeSearch = ({ trucks, center, where }) => {
                     <span>{truck.phone}</span>
                   </div>
                   <p>
-                    {(
-                      distance(
-                        truck.longitude,
-                        truck.latitude,
-                        center.lat,
-                        center.lng
-                      ) / 1000
-                    ).toFixed(1)}
+                    {truck.distance}
                     {' km'}
                   </p>
                 </div>
