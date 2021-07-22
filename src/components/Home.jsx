@@ -8,6 +8,8 @@ import HomeSelectWhen from './HomeSelectWhen';
 import HomeSelectWhere from './HomeSelectWhere';
 import HomeNoMap from './HomeNoMap';
 
+require('dotenv').config({ path: '../../.env' });
+
 const today = new Date();
 const todayNumber = today.getDay();
 const nowHours = today.getHours();
@@ -65,7 +67,9 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .post('http://localhost:8080/api/trucks/filter', {
+      // Adresse en dur car difficulté pour héberger sur Netlify et Heroku
+      // .post(`${process.env.REACT_APP_BACKEND_URL}/api/trucks/filter`, {
+      .post(`https://foodtruckback.herokuapp.com/api/trucks/filter`, {
         type: what === 'indécis' ? '' : what,
         cp: where.cp,
         weekday: when.day ? when.day : todayNumber,

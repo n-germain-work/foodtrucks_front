@@ -26,3 +26,5 @@ yarn-error.log*
 
 # vs code custom colors
 .vscode
+
+.netlify/
