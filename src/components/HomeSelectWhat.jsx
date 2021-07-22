@@ -10,33 +10,37 @@ const optionsWhat = [
   'pizza',
   'tacos',
   'vegan',
+  'viande',
 ];
 
-function SelectWhat({ what, setWhat }) {
+function HomeSelectWhat({ what, setWhat }) {
   const handleWhatChange = (e) => {
     setWhat(e.target.value);
   };
 
   return (
-    <div className="SelectWhat">
+    <div className="HomeSelectWhat">
       <span>Une envie particulière ? </span>
       <select className="listWhat" value={what} onChange={handleWhatChange}>
-        {optionsWhat.map((option) => (
-          <option value={option}>{option}</option>
+        {optionsWhat.map((option, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <option key={i} value={option}>
+            {option}
+          </option>
         ))}
       </select>
     </div>
   );
 }
 
-SelectWhat.propTypes = {
+HomeSelectWhat.propTypes = {
   what: PropTypes.string,
   setWhat: PropTypes.func,
 };
 
-SelectWhat.defaultProps = {
+HomeSelectWhat.defaultProps = {
   what: '',
   setWhat: '',
 };
 
-export default SelectWhat;
+export default HomeSelectWhat;

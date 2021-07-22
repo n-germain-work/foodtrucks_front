@@ -17,7 +17,7 @@ const optionsWhere = [
   },
 ];
 
-function SelectWhere({ where, setWhere }) {
+function HomeSelectWhere({ where, setWhere }) {
   const onChange = (newValue) => {
     setWhere({
       value: newValue,
@@ -33,7 +33,7 @@ function SelectWhere({ where, setWhere }) {
   };
 
   return (
-    <div className="SelectWhere">
+    <div className="HomeSelectWhere">
       <p>Dans quel coin ?</p>
       <div className="whereSelector">
         <SwitchSelector
@@ -46,7 +46,7 @@ function SelectWhere({ where, setWhere }) {
         />
       </div>
       <div className={where.value === 'cp' ? 'whereCp show' : 'whereCp'}>
-        <span>Ah ? Lequel ? </span>
+        <span>Quel code postal ? </span>
         <input
           className="inputCp"
           type="text"
@@ -58,14 +58,17 @@ function SelectWhere({ where, setWhere }) {
   );
 }
 
-SelectWhere.propTypes = {
-  where: PropTypes.oneOfType([PropTypes.string, PropTypes.string]),
+HomeSelectWhere.propTypes = {
+  where: PropTypes.shape({
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    cp: PropTypes.string,
+  }),
   setWhere: PropTypes.func,
 };
 
-SelectWhere.defaultProps = {
+HomeSelectWhere.defaultProps = {
   where: '',
   setWhere: '',
 };
 
-export default SelectWhere;
+export default HomeSelectWhere;

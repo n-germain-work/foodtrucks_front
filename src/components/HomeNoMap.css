@@ -1,0 +1,26 @@
+.HomeNoMap {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  background-color: rgb(240, 240, 240);
+  z-index: 0;
+}
+
+.HomeNoMap .needLocation {
+  width: 400px;
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .HomeNoMap {
+    height: 400px;
+    width: 90%;
+  }
+}

@@ -12,7 +12,7 @@
 .Home h3 {
   font-family: 'Kalam', cursive;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 300;
   padding: 1rem;
   margin: 0;
   width: 100%;
@@ -39,8 +39,8 @@
   margin-bottom: 2rem;
 }
 
-.SelectWhen .whenSelector,
-.SelectWhere .whereSelector {
+.HomeSelectWhen .whenSelector,
+.HomeSelectWhere .whereSelector {
   border-radius: 18px;
   border: 1px solid rgb(160, 160, 160);
   width: 300px;
@@ -75,7 +75,7 @@
 }
 
 .Home .inputCp {
-  width: 120px;
+  width: 100px;
   padding: 0.5rem;
   border-radius: 18px;
   text-align: center;
@@ -85,5 +85,10 @@
   width: 90px;
   padding: 0.5rem;
   border-radius: 18px;
-  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Comfortaa', cursive;
+}
+
+.HomeSearch {
+  margin-bottom: 10rem;
 }

@@ -91,7 +91,7 @@ const optionsMeal = [
   },
 ];
 
-function SelectWhen({ when, setWhen }) {
+function HomeSelectWhen({ when, setWhen }) {
   const onChange = (newValue) => {
     if (typeof newValue === 'number') {
       setWhen({
@@ -101,7 +101,7 @@ function SelectWhen({ when, setWhen }) {
     } else if (newValue === 'later') {
       setWhen({
         day: weekDaysNb[0],
-        meal: newValue,
+        meal: 'lunch',
       });
     } else if (newValue === 'thisLunch' || newValue === 'thisDiner') {
       setWhen({
@@ -117,13 +117,15 @@ function SelectWhen({ when, setWhen }) {
   };
 
   return (
-    <div className="SelectWhen">
+    <div className="HomeSelectWhen">
       <p>C&apos;est pour manger quand ?</p>
       <div className="whenSelector">
         <SwitchSelector
           onChange={onChange}
           options={optionsWhen}
-          initialSelectedIndex={0}
+          forcedSelectedIndex={optionsWhen
+            .map((option) => option.value)
+            .indexOf(when.meal)}
           backgroundColor="#e5e5e5"
           selectedBackgroundColor="#8cd41f"
           fontColor="#000000"
@@ -136,7 +138,11 @@ function SelectWhen({ when, setWhen }) {
             <SwitchSelector
               onChange={onChange}
               options={optionsDay}
-              initialSelectedIndex={0}
+              forcedSelectedIndex={
+                !when.day
+                  ? 0
+                  : optionsDay.map((option) => option.value).indexOf(when.day)
+              }
               backgroundColor="#e5e5e5"
               selectedBackgroundColor="#8cd41f"
               fontColor="#000000"
@@ -149,7 +155,7 @@ function SelectWhen({ when, setWhen }) {
             <SwitchSelector
               onChange={onChange}
               options={optionsMeal}
-              initialSelectedIndex={0}
+              forcedSelectedIndex={when.meal === 'lunch' ? 0 : 1}
               backgroundColor="#e5e5e5"
               selectedBackgroundColor="#8cd41f"
               fontColor="#000000"
@@ -161,7 +167,7 @@ function SelectWhen({ when, setWhen }) {
   );
 }
 
-SelectWhen.propTypes = {
+HomeSelectWhen.propTypes = {
   when: PropTypes.shape({
     day: PropTypes.number,
     meal: PropTypes.string,
@@ -169,9 +175,9 @@ SelectWhen.propTypes = {
   setWhen: PropTypes.func,
 };
 
-SelectWhen.defaultProps = {
+HomeSelectWhen.defaultProps = {
   when: '',
   setWhen: '',
 };
 
-export default SelectWhen;
+export default HomeSelectWhen;

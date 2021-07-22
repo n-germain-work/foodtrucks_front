@@ -1,0 +1,66 @@
+.HomeMap {
+  height: 600px;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  z-index: 0;
+}
+
+.leaflet-container {
+  height: 600px;
+  width: 800px;
+  border-radius: 0.5rem;
+}
+
+.HomeMap .phoneBtn a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.HomeMap button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeMap .popupBtns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.HomeMap .phoneBtn {
+  background-color: rgb(104, 207, 0);
+}
+
+.HomeMap .btnMaps {
+  background-color: rgb(58, 110, 252);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.HomeMap .truckPopup p {
+  margin: 0.3rem 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .HomeMap {
+    height: 400px;
+    width: 90%;
+  }
+
+  .leaflet-container {
+    height: 400px;
+    width: 90%;
+  }
+
+  .HomeMap .phoneBtn {
+    display: none;
+  }
+}

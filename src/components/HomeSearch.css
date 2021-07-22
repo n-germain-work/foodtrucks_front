@@ -1,0 +1,15 @@
+.HomeSearch {
+  width: 700px;
+}
+
+.HomeSearch .truckLabel {
+  width: 100%;
+  height: 50px;
+  background-color: darkgray;
+}
+
+@media only screen and (max-width: 1000px) {
+  .HomeSearch {
+    width: 75%;
+  }
+}
