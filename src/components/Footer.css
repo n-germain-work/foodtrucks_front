@@ -1,0 +1,27 @@
+.Footer {
+  height: 6vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1vh;
+  border-top: 2px solid #e2c278;
+  position: fixed;
+  bottom: 0;
+}
+
+.Footer .links {
+  display: flex;
+  width: 70vw;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Footer p,
+.Footer a {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 0.8rem;
+  color: #ba8200;
+  margin: 1vh;
+}

@@ -1,0 +1,11 @@
+.Header {
+  height: 12vh;
+  display: flex;
+  justify-content: center;
+  padding: 1vh;
+  border-bottom: 2px solid #e2c278;
+}
+
+.Header .logo {
+  height: 100%;
+}
