@@ -67,9 +67,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      // Adresse en dur car difficulté pour héberger sur Netlify et Heroku
-      // .post(`${process.env.REACT_APP_BACKEND_URL}/api/trucks/filter`, {
-      .post(`https://foodtruckback.herokuapp.com/api/trucks/filter`, {
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/trucks/filter`, {
         type: what === 'indécis' ? '' : what,
         cp: where.cp,
         weekday: when.day ? when.day : todayNumber,
