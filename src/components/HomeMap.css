@@ -17,7 +17,7 @@
 .HomeMap .phoneBtn a {
   text-decoration: none;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .HomeMap button {
@@ -43,7 +43,7 @@
 .HomeMap .btnMaps {
   background-color: rgb(58, 110, 252);
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -63,6 +63,6 @@
   }
 
   .HomeMap .phoneBtn {
-    display: block;
+    display: flex;
   }
 }
