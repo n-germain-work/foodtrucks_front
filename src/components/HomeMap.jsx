@@ -5,6 +5,7 @@ import './HomeMap.css';
 import PropTypes from 'prop-types';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
+import { FaPhone, FaRoute } from 'react-icons/fa';
 
 import distance from '../scripts/distanceCalculator';
 
@@ -171,7 +172,9 @@ const HomeMap = ({ trucks, center, where }) => {
                       <p>Téléphone : {truck.phone}</p>
                       <div className="popupBtns">
                         <button type="button" className="phoneBtn">
-                          <a href={`tel:${truck.phone}`}>&#9742;</a>
+                          <a href={`tel:${truck.phone}`}>
+                            <FaPhone />
+                          </a>
                         </button>
                         <button
                           className="btnMaps"
@@ -180,7 +183,7 @@ const HomeMap = ({ trucks, center, where }) => {
                             showInMapClicked(truck.longitude, truck.latitude)
                           }
                         >
-                          &#8663;
+                          <FaRoute />
                         </button>
                       </div>
                     </div>

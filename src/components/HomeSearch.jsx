@@ -2,6 +2,7 @@
 import './HomeSearch.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
+import { FaPhone, FaRoute } from 'react-icons/fa';
 import distance from '../scripts/distanceCalculator';
 
 const HomeSearch = ({ trucks, center, where }) => {
@@ -103,7 +104,9 @@ const HomeSearch = ({ trucks, center, where }) => {
 
               <div className="labelButtons">
                 <button type="button" className="phoneBtn">
-                  <a href={`tel:${truck.phone}`}>&#9742;</a>
+                  <a href={`tel:${truck.phone}`}>
+                    <FaPhone />
+                  </a>
                 </button>
                 <button
                   className="btnMaps"
@@ -112,7 +115,7 @@ const HomeSearch = ({ trucks, center, where }) => {
                     showInMapClicked(truck.longitude, truck.latitude)
                   }
                 >
-                  &#8663;
+                  <FaRoute />
                 </button>
               </div>
             </div>
