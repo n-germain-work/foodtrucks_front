@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import './HomeSearch.css';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
@@ -116,6 +117,18 @@ const HomeSearch = ({ trucks, center, where }) => {
               </div>
             </div>
           ))}
+      {trucksWithDistance.length &&
+        trucksWithDistance.filter(
+          (truck) => where.value === 'cp' || truck.distance <= where.value
+        ).length === 0 && (
+          <div className="noResult">
+            <p>Désolé, votre recherche n&apos;a renvoyé aucun truck.</p>
+            <p>
+              Essayez d&apos;augmenter le rayon de recherche ou de ne pas
+              spécifier d&apos;envie particulière.
+            </p>
+          </div>
+        )}
     </div>
   );
 };

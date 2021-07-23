@@ -89,6 +89,11 @@
   cursor: pointer;
 }
 
+.HomeSearch .noResult {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 @media only screen and (max-width: 1000px) {
   .HomeSearch {
     width: 95%;
